@@ -17,7 +17,7 @@ CFLAGS="${CFLAGS:--O3 -march=x86-64-v3}"
 EXE=""
 case "$(uname -s)" in MINGW*|MSYS*|CYGWIN*) EXE=".exe" ;; esac
 
-if [ ! -f "$NAUTY/nauty.h" ]; then
+if [ ! -f "$NAUTY/config.status" ]; then          # the archive ships headers for a generic Unix; configure for this system
   (cd "$NAUTY" && CC="$CC" ./configure >/dev/null)
 fi
 
