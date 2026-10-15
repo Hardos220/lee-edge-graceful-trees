@@ -18,6 +18,17 @@ OUT = ROOT / "paper" / "generated"
 A000055 = [1, 1, 1, 1, 2, 3, 6, 11, 23, 47, 106, 235, 551, 1301, 3159, 7741, 19320, 48629,
            123867, 317955, 823065, 2144505, 5623756, 14828074, 39299897, 104636890,
            279793450, 751065460, 2023443032, 5469566585, 14830871802, 40330829030]
+def rooted_trees(nmax):
+    """A000081: r[n] = number of rooted trees with n vertices (Cayley's recurrence)."""
+    r = [0] * (nmax + 1)
+    r[1] = 1
+    for m in range(1, nmax):
+        r[m + 1] = sum(sum(d * r[d] for d in range(1, k + 1) if k % d == 0) * r[m - k + 1]
+                       for k in range(1, m + 1)) // m
+    return r
+
+
+A000081 = rooted_trees(32)
 WORDS = {3: "Three", 5: "Five", 9: "Nine", 21: "TwentyOne", 25: "TwentyFive", 27: "TwentySeven",
          29: "TwentyNine", 30: "Thirty", 31: "ThirtyOne"}
 
@@ -112,7 +123,7 @@ def main():
     # ---- Table 3: zero vertex
     lines = []
     zmax = 3
-    tot_pairs = tot_trees = 0
+    tot_pairs = tot_trees = tot_orbits = 0
     for d in sorted(ROOT.glob("runs/zr_n*"), key=lambda p: int(p.name[4:])):
         n = int(d.name[4:])
         t = summarize_run(d)
@@ -126,14 +137,17 @@ def main():
         assert fam == family_size(n) and (outside == 0 or n == 9), f"zero vertex: unexpected pairs at n={n}"
         zmax = max(zmax, n)
         tot_pairs += t["records"]
+        orbits = A000081[n] - A000081[n - 1]          # (tree, orbit of an internal vertex) = rooted tree
+        tot_orbits += orbits
         tot_trees += t["trees"]
-        lines.append(f"{n} & {fmt(t['trees'])} & {fmt(t['records'])} & {fmt(t['records_valid'])} & "
+        lines.append(f"{n} & {fmt(t['trees'])} & {fmt(t['records'])} & {fmt(orbits)} & {fmt(t['records_valid'])} & "
                      f"{family_size(n)} & {outside} & {len(imp)} \\\\")
-    write_table("tab_zero.tex", "rrrrrrr",
-                r"$n$ & trees & pairs & certified & Prop.~\ref{prop:double} & other & proved by search \\", lines)
+    write_table("tab_zero.tex", "rrrrrrrr",
+                r"$n$ & trees & pairs & orbits & certified & Prop.~\ref{prop:double} & other & by search \\", lines)
     macros["ZeroMaxN"] = str(zmax)
     macros["ZeroPairsTotal"] = fmt(tot_pairs)
     macros["ZeroPairsTotalSci"] = sci(tot_pairs)
+    macros["ZeroOrbitsTotal"] = fmt(tot_orbits)
     macros["ZeroTreesTotal"] = fmt(tot_trees)
 
     # ---- antimagic fallback stage: largest fraction of trees of an even order that needed it
