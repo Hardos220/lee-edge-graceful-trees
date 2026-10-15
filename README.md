@@ -9,8 +9,10 @@ A labeling of a tree with n vertices assigns the labels 1, …, n−1 bijectivel
 - **Lee's conjecture for n ≤ 31.** Every tree of odd order n ≤ 31 is edge-graceful. This covers 46,673,446,467 trees.
 - **Hartsfield–Ringel conjecture for trees with 3 ≤ n ≤ 31.** Every such tree is antimagic. This covers 63,853,448,503 trees. Edge-graceful labelings are antimagic, so for even n an antimagic labeling was searched directly.
 - **Zero vertex.** In an edge-graceful labeling exactly one vertex has sum ≡ 0 (mod n). For odd n ≤ 27, every internal vertex v of every tree T is the zero vertex of some edge-graceful labeling of T, with these exceptions:
-  - the centers of the double stars D(k,m,2) and D(k,m,3), which can never be the zero vertex (2n − 7 pairs; Proposition 1.5 of the paper);
-  - for n = 9, the two centers of D(2,2,4).
+  - the ends of the double brooms D(k,m,2) and D(k,m,3), which can never be the zero vertex (2n − 7 pairs; Proposition 1.5 of the paper);
+  - for n = 9, the two ends of D(2,2,4). For spine length 4 this is the only exception (Proposition 5.1).
+
+  The double broom D(k,m,L) is a path c₀c₁…c_L (the spine) with k ≥ 1 leaves attached to c₀ and m ≥ 0 leaves attached to c_L. Its ends are c₀ and, if m ≥ 1, c_L.
 
 Every labeling was written to a certificate and accepted by an independent checker. The number of trees of every order equals OEIS [A000055](https://oeis.org/A000055).
 
@@ -34,7 +36,7 @@ Every labeling was written to a certificate and accepted by an independent check
 
 Zero-vertex runs: pairs (T, v) with v an internal vertex of a fixed copy of T. Automorphic vertices are counted separately.
 
-| n | trees | pairs (T, v) | with a labeling | Prop. 1.5 | other exceptions |
+| n | trees | pairs (T, v) | with a labeling | Prop. 1.5 | Prop. 5.1 (n = 9) |
 |---:|---:|---:|---:|---:|---:|
 | 3 | 1 | 1 | 1 | 0 | 0 |
 | 5 | 3 | 6 | 3 | 3 | 0 |
@@ -60,12 +62,13 @@ Zero-vertex runs: pairs (T, v) with v an internal vertex of a fixed copy of T. A
 | `src/egsolve.c` | solves given trees again with other seeds |
 | `src/zrcount.c` | exhaustive count of edge-graceful labelings with each zero vertex (small n) |
 | `tools/run_parts.py` | driver: runs `egrun \| egcheck` over the parts `res/mod` of an order and aggregates the results |
-| `tools/verify_part.py` | regenerates the certificate of one deposited part and checks it against its hash |
+| `tools/verify_part.py` | checks the certificate of one part (deposited for n ≤ 21, regenerated otherwise) and compares it with its hash |
 | `tools/check_uniqueness.py` | independent check, in Python, that `gentreeg` lists no tree twice |
 | `tools/py_recheck.py` | third checker, in Python: regenerates certificates and checks every record |
 | `tools/merge_recheck.py` | merges the recheck of parts 2800–3099 of order 31 (`runs/n31_recheck`) into `runs/n31` |
 | `tools/zr_analyze.py` | compares the zero-vertex exceptions with the double-star family |
 | `tools/zr_counts.py` | runs `zrcount` for odd n ≤ 11 and checks the counts |
+| `tools/hardness_regression.py` | regression of the search effort on the number of leaves, of degree-two vertices and the diameter (sample of order 27) |
 | `tools/make_paper_tables.py` | produces every number and table of the paper from `runs/` |
 | `tests/test_small.py` | tests on small orders, including brute force over all labelings for n ≤ 9 |
 | `third_party/fetch_nauty.sh` | downloads nauty 2.9.3 and checks its SHA-256 |
@@ -81,13 +84,13 @@ On the first run `build.sh` downloads nauty 2.9.3 into `third_party/`. The progr
 
 ## Checking the results
 
-The search is deterministic: the random generator is seeded from n, the part and the index of the tree. Each part can therefore be regenerated bit for bit and checked:
+The certificates of all trees with at most 21 vertices are deposited in `runs/nN/parts/*.cert` and can be checked without running the search. For larger orders the certificates are not stored. The search is deterministic, because the random generator is seeded from n, the part and the index of the tree, so every certificate can be regenerated bit for bit.
 
-    python tools/verify_part.py 21 5           # order 21, part 5 of 20
-    python tools/verify_part.py 31 2900        # order 31, part 2900 of 4000
-    python tools/verify_part.py 19 1 --zero    # zero-vertex run, order 19, part 1 of 2
+    python tools/verify_part.py 21 5           # order 21, part 5 of 20: deposited certificate
+    python tools/verify_part.py 31 2900        # order 31, part 2900 of 4000: regenerated
+    python tools/verify_part.py 19 1 --zero    # zero-vertex run, order 19, part 1 of 2: regenerated
 
-The script pipes `egrun N RES MOD --cert -` into `egcheck N RES MOD -`. It reports the checker's verdict and whether the SHA-256 of the regenerated certificate equals the deposited hash. In our tests, builds with `-O1` and with `-O3 -march=x86-64-v3` gave identical certificates.
+For a deposited certificate the script runs `egcheck N RES MOD FILE`. Otherwise it pipes `egrun N RES MOD --cert -` into `egcheck N RES MOD -`; `--regenerate` forces this also for n ≤ 21. It reports the checker's verdict and whether the SHA-256 of the certificate equals the deposited hash. Equal hashes show that the certificate is the original one; that its labelings are correct is shown by the checker. In our tests, builds with `-O1` and with `-O3 -march=x86-64-v3` gave identical certificates.
 
 To redo a whole order, or the zero-vertex run of an order, into a separate directory:
 
@@ -101,6 +104,7 @@ Independent checks:
     python tools/check_uniqueness.py --nmax 20
     python tools/py_recheck.py --plan runs/checks/recheck_plan.json --out recheck.json
     python tools/zr_counts.py --orders 5 7 9 11 --out zr_counts.json
+    python tools/hardness_regression.py --n 27 --sample 20000 --repeat 5 --out regression.json
     python tests/test_small.py
 
 ## Data (`runs/`)
@@ -111,13 +115,15 @@ Independent checks:
 | `runs/nN/cert_sha256.txt` | SHA-256 and number of trees of the certificate of every part |
 | `runs/nN/parts/*.done.json` | per part: number of trees, the checker's verdict, SHA-256 |
 | `runs/nN/parts/*.summary.json` | per part: search statistics (iterations, stages) |
+| `runs/nN/parts/*.cert` | the certificates, for n ≤ 21 |
 | `runs/zr_nN/` | the same for the zero-vertex run of order N. `parts/*.hard.txt` lists the pairs without a certificate, all of which are exceptions in the theorem |
 | `runs/n31_recheck/` | second computation of parts 2800–3099 of order 31 with the streaming checker; all 300 hashes agree with the first one |
 | `runs/checks/uniqueness.json` | independent uniqueness check of the generated trees, n ≤ 26 |
 | `runs/checks/recheck.json` | Python recheck of one part of every order 15 ≤ n ≤ 31 |
 | `runs/checks/zr_counts.json` | exhaustive zero-vertex counts, odd n ≤ 11 |
+| `runs/checks/hardness_regression.json` | regression of the search effort, sample of order 27 |
 
-The certificates themselves (about 1.2 TB in total) are not stored. Regenerate them with `tools/verify_part.py` or `egrun`.
+The certificates for n ≥ 22 (about 1.2 TB in total) are not stored. Regenerate them with `tools/verify_part.py` or `egrun`.
 
 ### Certificate format
 

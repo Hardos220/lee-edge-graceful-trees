@@ -73,6 +73,17 @@ def main():
     for n in (21, 25, 29, 30, 31):
         macros[f"Ntrees{WORDS[n]}"] = fmt(A000055[n])
         macros[f"Ntrees{WORDS[n]}Sci"] = sci(A000055[n])
+    # machine-independent size of the computation
+    macros["EGItersTotalSci"] = sci(sum(main_rows[n]["work_total"] for n in odd))
+    macros["AMStepsTotalSci"] = sci(sum(main_rows[n]["work_total"] for n in allv if n % 2 == 0))
+    part_trees = [int(re.search(r"trees=(\d+)", l).group(1))
+                  for l in (ROOT / "runs" / "n31" / "cert_sha256.txt").read_text().splitlines() if l.strip()]
+    assert sum(part_trees) == A000055[31]
+    macros["PartTreesMinThirtyOneSci"] = sci(min(part_trees), 1)
+    macros["PartTreesMaxThirtyOneSci"] = sci(max(part_trees), 1)
+    macros["PartTreesMedianThirtyOneSci"] = sci(sorted(part_trees)[len(part_trees) // 2], 1)
+    macros["NtreesThirtyThree"] = fmt(300628862480)                       # A000055(33)
+    macros["GrowthThirtyThree"] = f"{300628862480 / A000055[31]:.2f}"
     macros["WorkMaxOdd"] = fmt(max(main_rows[n]["work_max"] for n in odd))
     macros["MeanWorkThirtyOne"] = f"{main_rows[31]['work_total'] / main_rows[31]['trees']:.1f}"
 
@@ -87,6 +98,12 @@ def main():
     write_table("tab_deg2.tex", "rrrrrrr",
                 r"$n$ & all & $d_2=0$ & $d_2=5$ & $d_2=10$ & $d_2=15$ & $d_2=20$ \\", lines)
     by31 = {int(k): v for k, v in main_rows[31]["by_deg2"].items()}
+    # Table 4 (appendix): all classes d2 for n = 31, in two halves side by side
+    cls = [f"{k} & {fmt(by31[k][0])} & {by31[k][1] / by31[k][0]:.1f}" for k in sorted(by31)]
+    half = (len(cls) + 1) // 2
+    lines = [cls[i] + " & & " + (cls[i + half] if i + half < len(cls) else "& &") + r" \\" for i in range(half)]
+    write_table("tab_deg2_full.tex", "rrrcrrr",
+                r"$d_2$ & trees & mean work & & $d_2$ & trees & mean work \\", lines)
     ratios = [(by31[k + 1][1] / by31[k + 1][0]) / (by31[k][1] / by31[k][0]) for k in range(0, 20)
               if k in by31 and k + 1 in by31]
     macros["DegTwoRatioMin"] = f"{min(ratios):.2f}"
@@ -136,6 +153,16 @@ def main():
         macros["RecheckParts"] = str(len(rc))
         macros["RecheckRecords"] = fmt(sum(r["checked"] for r in rc))
         macros["RecheckNmin"] = str(min(r["n"] for r in rc))
+    if (chk / "hardness_regression.json").exists():
+        hr = json.loads((chk / "hardness_regression.json").read_text())
+        macros["HardRegN"] = str(hr["n"])
+        macros["HardRegTrees"] = fmt(hr["trees"])
+        macros["HardRegRepeat"] = str(hr["repeat"])
+        for k, w in (("d2", "DTwo"), ("leaves", "Leaves"), ("diameter", "Diam")):
+            macros[f"HardRegRsq{w}"] = f"{hr['r2_single'][k]:.2f}"
+            macros[f"HardRegCoef{w}"] = f"{hr['standardized_coef_joint'][k]:.2f}"
+        macros["HardRegRsqJoint"] = f"{hr['r2_joint']:.2f}"
+        macros["HardRegCorrDTwoLeaves"] = f"{hr['corr_d2_leaves']:.2f}"
     if (chk / "zr_counts.json").exists():
         zc = json.loads((chk / "zr_counts.json").read_text())
         assert all(r["other_exceptions"] == (2 if r["n"] == 9 else 0) for r in zc)

@@ -24,6 +24,7 @@
 !/tools/zr_analyze.py
 !/tools/zr_counts.py
 !/tools/make_paper_tables.py
+!/tools/hardness_regression.py
 
 /runs/*
 !/runs/n*/
@@ -34,8 +35,13 @@
 !/runs/checks/recheck.json
 !/runs/checks/recheck_plan.json
 !/runs/checks/zr_counts.json
+!/runs/checks/hardness_regression.json
 
 *.cert
+# the certificates of the orders n <= 21 are deposited
+!/runs/n[3-9]/parts/*.cert
+!/runs/n1[0-9]/parts/*.cert
+!/runs/n2[01]/parts/*.cert
 *.log
 *.top.txt
 __pycache__/
