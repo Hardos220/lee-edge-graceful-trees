@@ -7,6 +7,7 @@ authors:
     affiliation: Samara National Research University
     orcid: "https://orcid.org/0009-0001-3097-2703"
 license: MIT
+doi: "10.5281/zenodo.23405211"
 repository-code: "https://github.com/Hardos220/lee-edge-graceful-trees"
 keywords:
   - edge-graceful labeling

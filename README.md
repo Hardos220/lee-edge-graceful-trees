@@ -1,5 +1,7 @@
 # Edge-graceful and antimagic labelings of all trees with at most 31 vertices
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23405211.svg)](https://doi.org/10.5281/zenodo.23405211)
+
 Code and data for the paper *Lee's edge-graceful tree conjecture for all trees with at most 31 vertices, and the zero vertex of an edge-graceful labeling* by Maksim Elisov (Samara National Research University).
 
 ## Results
@@ -143,4 +145,4 @@ A certificate starts with a 64-byte little-endian header: `"EGCERT1\0"`, n, mode
 
 ## Citation
 
-See `CITATION.cff`. The archived version of this repository has a DOI on Zenodo.
+See `CITATION.cff`. The repository is archived on Zenodo: [10.5281/zenodo.23405211](https://doi.org/10.5281/zenodo.23405211) (all versions); version 1.0.0, which accompanies the paper, is [10.5281/zenodo.23405212](https://doi.org/10.5281/zenodo.23405212).
