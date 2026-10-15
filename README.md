@@ -2,7 +2,7 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23405211.svg)](https://doi.org/10.5281/zenodo.23405211)
 
-Code and data for the paper *Lee's edge-graceful tree conjecture for all trees with at most 31 vertices, and the zero vertex of an edge-graceful labeling* by Maksim Elisov (Samara National Research University).
+Code and data for the paper *Lee's edge-graceful tree conjecture for all trees with at most 31 vertices, and the zero vertex of an edge-graceful labeling* by Maksim Elisov (Samara National Research University) and Aleksandr Petrov (Lomonosov Moscow State University).
 
 ## Results
 
@@ -145,4 +145,4 @@ A certificate starts with a 64-byte little-endian header: `"EGCERT1\0"`, n, mode
 
 ## Citation
 
-See `CITATION.cff`. The repository is archived on Zenodo: [10.5281/zenodo.23405211](https://doi.org/10.5281/zenodo.23405211) (all versions); version 1.0.0, which accompanies the paper, is [10.5281/zenodo.23405212](https://doi.org/10.5281/zenodo.23405212).
+See `CITATION.cff`. The repository is archived on Zenodo under the DOI [10.5281/zenodo.23405211](https://doi.org/10.5281/zenodo.23405211), which always resolves to the latest version; every release also has its own DOI.
