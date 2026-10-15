@@ -1,0 +1,78 @@
+[
+ {
+  "n": 5,
+  "trees": 3,
+  "internal_pairs": 6,
+  "phi": 4,
+  "other_exceptions": 0,
+  "min_count": 4,
+  "min_count_per_unit_class": 1,
+  "argmin_parents": [
+   0,
+   1,
+   0,
+   3
+  ],
+  "argmin_vertex": 0
+ },
+ {
+  "n": 7,
+  "trees": 11,
+  "internal_pairs": 34,
+  "phi": 6,
+  "other_exceptions": 0,
+  "min_count": 6,
+  "min_count_per_unit_class": 1,
+  "argmin_parents": [
+   0,
+   1,
+   2,
+   1,
+   0,
+   5
+  ],
+  "argmin_vertex": 1
+ },
+ {
+  "n": 9,
+  "trees": 47,
+  "internal_pairs": 197,
+  "phi": 6,
+  "other_exceptions": 2,
+  "min_count": 18,
+  "min_count_per_unit_class": 3,
+  "argmin_parents": [
+   0,
+   1,
+   2,
+   1,
+   4,
+   0,
+   6,
+   7
+  ],
+  "argmin_vertex": 2
+ },
+ {
+  "n": 11,
+  "trees": 235,
+  "internal_pairs": 1252,
+  "phi": 10,
+  "other_exceptions": 0,
+  "min_count": 240,
+  "min_count_per_unit_class": 24,
+  "argmin_parents": [
+   0,
+   1,
+   2,
+   3,
+   3,
+   3,
+   0,
+   7,
+   8,
+   8
+  ],
+  "argmin_vertex": 2
+ }
+]

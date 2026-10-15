@@ -1,0 +1,262 @@
+[
+ {
+  "n": 1,
+  "parts": 1,
+  "trees": 1,
+  "A000055": 1,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 0.5
+ },
+ {
+  "n": 2,
+  "parts": 1,
+  "trees": 1,
+  "A000055": 1,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 0.2
+ },
+ {
+  "n": 3,
+  "parts": 1,
+  "trees": 1,
+  "A000055": 1,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 0.2
+ },
+ {
+  "n": 4,
+  "parts": 1,
+  "trees": 2,
+  "A000055": 2,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 0.2
+ },
+ {
+  "n": 5,
+  "parts": 1,
+  "trees": 3,
+  "A000055": 3,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 0.2
+ },
+ {
+  "n": 6,
+  "parts": 1,
+  "trees": 6,
+  "A000055": 6,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 0.2
+ },
+ {
+  "n": 7,
+  "parts": 1,
+  "trees": 11,
+  "A000055": 11,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 0.2
+ },
+ {
+  "n": 8,
+  "parts": 1,
+  "trees": 23,
+  "A000055": 23,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 0.2
+ },
+ {
+  "n": 9,
+  "parts": 1,
+  "trees": 47,
+  "A000055": 47,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 0.2
+ },
+ {
+  "n": 10,
+  "parts": 1,
+  "trees": 106,
+  "A000055": 106,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 0.2
+ },
+ {
+  "n": 11,
+  "parts": 1,
+  "trees": 235,
+  "A000055": 235,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 0.2
+ },
+ {
+  "n": 12,
+  "parts": 1,
+  "trees": 551,
+  "A000055": 551,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 0.2
+ },
+ {
+  "n": 13,
+  "parts": 1,
+  "trees": 1301,
+  "A000055": 1301,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 0.3
+ },
+ {
+  "n": 14,
+  "parts": 1,
+  "trees": 3159,
+  "A000055": 3159,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 0.4
+ },
+ {
+  "n": 15,
+  "parts": 1,
+  "trees": 7741,
+  "A000055": 7741,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 0.7
+ },
+ {
+  "n": 16,
+  "parts": 1,
+  "trees": 19320,
+  "A000055": 19320,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 1.5
+ },
+ {
+  "n": 17,
+  "parts": 1,
+  "trees": 48629,
+  "A000055": 48629,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 3.8
+ },
+ {
+  "n": 18,
+  "parts": 1,
+  "trees": 123867,
+  "A000055": 123867,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 7.0
+ },
+ {
+  "n": 19,
+  "parts": 1,
+  "trees": 317955,
+  "A000055": 317955,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 14.7
+ },
+ {
+  "n": 20,
+  "parts": 2,
+  "trees": 823065,
+  "A000055": 823065,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 21.6
+ },
+ {
+  "n": 21,
+  "parts": 7,
+  "trees": 2144505,
+  "A000055": 2144505,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 41.0
+ },
+ {
+  "n": 22,
+  "parts": 18,
+  "trees": 5623756,
+  "A000055": 5623756,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 119.2
+ },
+ {
+  "n": 23,
+  "parts": 49,
+  "trees": 14828074,
+  "A000055": 14828074,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 324.5
+ },
+ {
+  "n": 24,
+  "parts": 130,
+  "trees": 39299897,
+  "A000055": 39299897,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 917.5
+ },
+ {
+  "n": 25,
+  "parts": 348,
+  "trees": 104636890,
+  "A000055": 104636890,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 2386.2
+ },
+ {
+  "n": 26,
+  "parts": 932,
+  "trees": 279793450,
+  "A000055": 279793450,
+  "count_ok": true,
+  "repeated_hashes": 0,
+  "unique_and_complete": true,
+  "seconds": 6579.1
+ }
+]

@@ -1,0 +1,12 @@
+{
+  "n": 9, "mode": "eg", "res": 0, "mod": 1,
+  "trees": 47, "sample": 1, "salt": 1,
+  "solved": 47, "impossible": 0, "unsolved": 0,
+  "solved_by_stage": [0, 47, 0],
+  "work_total": 137, "work_max": 24, "restarts_total": 0,
+  "limits": {"s1_restarts": 0, "s1_base": 256, "s2_tries": 2000, "s2_iters": 2000, "s2_greedy": 1, "s2_noise": 0, "s2_move": 2, "s3_nodes": 4000000000},
+  "hist_log2_work": [10, 22, 10, 3, 2],
+  "by_deg2": {"0": [5, 3, 2], "1": [9, 11, 5], "2": [10, 20, 6], "3": [12, 70, 24], "4": [5, 12, 5], "5": [5, 20, 10], "7": [1, 1, 1]},
+  "hardest_par": [0, 1, 2, 2, 2, 2, 0, 7],
+  "wall_sec": 0.000
+}

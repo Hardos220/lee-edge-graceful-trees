@@ -1,0 +1,28 @@
+{
+ "part": "part_00034_of_00050",
+ "res": 34,
+ "mod": 50,
+ "trees": 1932427,
+ "egrun_rc": 0,
+ "verify": {
+  "cert": "C:\\Cursor\\Math_problems\\egtrees\\runs\\n25\\parts\\part_00034_of_00050.cert",
+  "n": 25,
+  "mode": "eg",
+  "res": 34,
+  "mod": 50,
+  "trees": 1932427,
+  "header_count": 1932427,
+  "valid": 1932427,
+  "invalid": 0,
+  "unsolved": 0,
+  "am_violations_in_eg": 0,
+  "first_problem": 0,
+  "trailing_data": false,
+  "expect_count_ok": true,
+  "returncode": 0
+ },
+ "cert_bytes": 28986469,
+ "cert_sha256": "8762c122008bd90b4a75805ed8619ed68e7c560c369baf95a986cb2e30bae212",
+ "search_sec": 20.333,
+ "verify_sec": 1.894
+}

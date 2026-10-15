@@ -1,0 +1,40 @@
+{
+ "part": "part_03098_of_04000",
+ "res": 3098,
+ "mod": 4000,
+ "trees": 6552457,
+ "egrun_rc": 0,
+ "verify": {
+  "cert": "-",
+  "n": 31,
+  "mode": "eg",
+  "res": 3098,
+  "mod": 4000,
+  "trees": 6552457,
+  "header_count": 6552457,
+  "header_count_ok": true,
+  "valid": 6552457,
+  "invalid": 0,
+  "unsolved": 0,
+  "am_violations_in_eg": 0,
+  "first_problem": 0,
+  "certificate_too_short": false,
+  "trailing_data": false,
+  "expect_count_ok": true,
+  "sha256": "b13a535a2262ca54f0408bda6ea97ca183522dd3616ac504c913652698e685d5",
+  "returncode": 0
+ },
+ "cert_bytes": 124496747,
+ "cert_sha256": "b13a535a2262ca54f0408bda6ea97ca183522dd3616ac504c913652698e685d5",
+ "search_sec": 122.127,
+ "verify_sec": 6.087,
+ "cert_deleted": true,
+ "verify_original": {
+  "error": "",
+  "returncode": 0
+ },
+ "rechecked": {
+  "by": "runs\\n31_recheck",
+  "sha256_identical": true
+ }
+}

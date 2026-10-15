@@ -1,0 +1,83 @@
+{
+ "n": 8,
+ "mod": 1,
+ "parts_done": 1,
+ "trees": 23,
+ "solved": 23,
+ "impossible": 0,
+ "unsolved": 0,
+ "solved_by_stage": [
+  23,
+  0,
+  0
+ ],
+ "work_total": 358,
+ "work_max": 84,
+ "verified_valid": 23,
+ "verify_failures": [],
+ "hist_log2_work": [
+  0,
+  0,
+  0,
+  17,
+  4,
+  1,
+  1
+ ],
+ "by_deg2": {
+  "0": [
+   4,
+   121,
+   84
+  ],
+  "1": [
+   4,
+   39,
+   13
+  ],
+  "2": [
+   7,
+   99,
+   41
+  ],
+  "3": [
+   3,
+   37,
+   16
+  ],
+  "4": [
+   4,
+   47,
+   19
+  ],
+  "6": [
+   1,
+   15,
+   15
+  ]
+ },
+ "search_sec": 0.0,
+ "verify_sec": 0.01,
+ "cert_bytes": 179,
+ "hardest": [
+  [
+   84,
+   "part_00000_of_00001",
+   [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ]
+  ]
+ ],
+ "mode": "am",
+ "expected_trees": 23,
+ "complete": true,
+ "count_matches_A000055": true,
+ "all_verified": true,
+ "claim_holds": true
+}

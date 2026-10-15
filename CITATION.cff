@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this code or data, please cite it as below."
+title: "Edge-graceful and antimagic labelings of all trees with at most 31 vertices: code and data"
+authors:
+  - family-names: Elisov
+    given-names: Maksim
+    affiliation: Samara National Research University
+    orcid: "https://orcid.org/0009-0001-3097-2703"
+license: MIT
+repository-code: "https://github.com/Hardos220/lee-edge-graceful-trees"
+keywords:
+  - edge-graceful labeling
+  - antimagic labeling
+  - trees
+  - Lee's conjecture
+  - exhaustive computer search

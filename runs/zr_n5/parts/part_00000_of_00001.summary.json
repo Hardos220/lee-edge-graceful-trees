@@ -1,0 +1,13 @@
+{
+  "n": 5, "mode": "zr", "res": 0, "mod": 1,
+  "trees": 3, "sample": 1, "salt": 1,
+  "solved": 1, "impossible": 2, "unsolved": 0,
+  "zr_pairs": 6, "zr_pairs_solved": 3, "zr_pairs_impossible": 3, "zr_pairs_unsolved": 0,
+  "solved_by_stage": [1, 0, 0],
+  "work_total": 12000073, "work_max": 8000050, "restarts_total": 0,
+  "limits": {"s1_restarts": 0, "s1_base": 256, "s2_tries": 2000, "s2_iters": 2000, "s2_greedy": 1, "s2_noise": 0, "s2_move": 2, "s3_nodes": 4000000000},
+  "hist_log2_work": [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1],
+  "by_deg2": {"0": [1, 0, 0], "1": [1, 4000023, 4000023], "3": [1, 8000050, 8000050]},
+  "hardest_par": [0, 1, 0, 3],
+  "wall_sec": 0.524
+}
